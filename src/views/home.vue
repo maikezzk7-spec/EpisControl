@@ -6,7 +6,9 @@
         <p class="subtitle">E o Controle de Equipamento de segurança Individual da sua Empresa</p>
         <p class="subtitle">Para um Ambiente de Trabalho Protegido.</p>
       </div>
-      <button class="btn-acesso">Acesso</button>
+      <div class="nav-button-container">
+        <button class="btn-acesso">Acesso</button>
+      </div>
     </header>
 
     <div class="hero-banner">
