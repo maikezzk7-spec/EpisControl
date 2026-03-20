@@ -129,85 +129,116 @@ export default {
 
 <style scoped>
 .home-container {
-  background-color: #050a18; /* Cor escura */
+  background-color: #050a18;
   color: white;
   min-height: 100vh;
-  padding: 20px;
+  padding: 0 0 40px 0;
   font-family: sans-serif;
 }
 
+/* Header e Botão Acesso */
 .header { 
   display: flex; 
   justify-content: center; 
+  align-items: center;
   position: relative; 
-  text-align: center; 
-  padding: 20px 0;
+  padding: 40px 20px;
 }
 
-h1 { color: #ffff00; margin-bottom: 5px; } /* Amarelo */
-
-.subtitle {
-  margin: 2px 0;
-  font-size: 0.9rem;
+.nav-button-container {
+  position: absolute;
+  right: 40px;
+  top: 40px;
 }
 
 .btn-acesso { 
-  position: absolute; 
-  right: 0; 
-  top: 20px; 
-  border: 1px solid white; 
+  border: 1.5px solid white; 
   background: none; 
   color: white; 
-  padding: 5px 15px; 
+  padding: 8px 30px; 
   cursor: pointer; 
-  border-radius: 4px;
+  border-radius: 20px; /* Botão estilo pílula do Figma */
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-.placeholder-img { 
-  background: #1a2333; 
-  height: 300px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  margin: 20px 0; 
-  border-bottom: 3px solid #0055ff; 
-  font-weight: bold;
+.btn-acesso:hover {
+  background: white;
+  color: #050a18;
 }
+
+/* Títulos principais */
+h1 { color: #ffff00; font-size: 32px; margin-bottom: 10px; }
+.subtitle { margin: 5px 0; font-size: 18px; opacity: 0.9; }
 
 .section-title { 
   color: #ffff00; 
   text-align: center; 
-  margin: 40px 0; 
-  font-size: 1.5rem;
+  margin: 60px 0 40px 0; 
+  font-size: 28px;
 }
 
+/* Grade de Benefícios com Títulos 24px */
 .benefits-grid { 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: 30px; 
-  padding: 0 5%;
+  padding: 20px 5%;
 }
 
-.card { 
+.benefit-item { 
   display: flex; 
   justify-content: space-between; 
-  align-items: center; 
-  padding: 15px;
+  align-items: flex-start; 
+  padding: 25px;
   border-bottom: 1px solid #1a2333;
 }
 
-.card-content h3 {
-  margin: 0;
-  font-size: 1.1rem;
+.benefit-text h3 {
+  font-size: 24px; /* Tamanho 24 que você notou */
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: white;
 }
 
-.card-content p {
-  color: #b0b0b0;
-  font-size: 0.85rem;
+.benefit-text p {
+  font-size: 16px;
+  color: #d1d1d1;
+  line-height: 1.5;
 }
 
-.card-icon { 
-  font-size: 2.5rem; 
-  margin-left: 15px;
+.benefit-icon { 
+  font-size: 40px; 
+  color: #ffff00;
+  margin-left: 20px;
 }
+
+/* Banner Principal e Linha Azul */
+.hero-banner {
+  width: 100%;
+  border-bottom: 4px solid #0055ff; /* A linha azul do Figma */
+}
+
+.hero-img, .placeholder-img { 
+  width: 100%;
+  height: 450px;
+  background: #1a2333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+/* Rodapé */
+.main-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  padding: 40px 5%;
+  border-top: 1px solid #1a2333;
+}
+
+.footer-column h4 { color: #ffff00; margin-bottom: 15px; }
+.footer-social { display: flex; gap: 15px; align-items: center; font-size: 24px; }
 </style>
