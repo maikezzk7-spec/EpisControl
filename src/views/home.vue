@@ -18,12 +18,12 @@
     <h2 class="section-title">Um software de gestão ágil de EPIs que maximiza resultados</h2>
 
     <section class="benefits-grid">
-      <div class="benefit-item">
+     <div class="benefit-item">
         <div class="benefit-text">
-          <h3>Ganhe eficiência na gestão de EPIs</h3>
-          <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas  de materiais e reúne funcionalidades incríveis para ganho de performance.</p>
+          <h3>Ferramenta completa de gestão de EPIs</h3>
+          <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas de materiais e reúne funcionalidades incríveis para ganho de performance.</p>
         </div>
-        <span class="benefit-icon">🕒</span>
+        <span class="benefit-icon">⏱️</span>
       </div>
 
       <div class="benefit-item">
@@ -37,17 +37,17 @@
       <div class="benefit-item">
         <div class="benefit-text">
           <h3>Segurança e confiabilidade</h3>
-          <p>O uso da biometria oferece maior controle e segurança ao empregador e garante a entrega do equipamento de proteção adequado ao trabalhador certo.</p>
+          <p>O uso da biometria oferece maior controle e segurança ao empregador, que garante a entrega do equipamento de proteção adequado ao trabalhador certo.</p>
         </div>
-        <span class="benefit-icon">☝️</span>
+        <span class="benefit-icon">👆</span>
       </div>
 
       <div class="benefit-item">
         <div class="benefit-text">
-          <h3>Controle o consumo indevido</h3>
+          <h3>Controle o consumo indevido de EPIs</h3>
           <p>Evite o uso desnecessário de equipamentos de proteção individual entregando o material específico para cada função, na quantidade ideal e com o certificado de aprovação (CA) válido.</p>
         </div>
-        <span class="benefit-icon">⛑️</span>
+        <span class="benefit-icon">🪖</span>
       </div>
 
       <div class="benefit-item">
@@ -55,7 +55,7 @@
           <h3>Reduza o passivo trabalhista</h3>
           <p>Receba alertas inteligentes sobre a periodicidade de troca dos EPIs dos seus funcionários, controlando a validade dos equipamentos, data de entrega, próxima troca e prazo de validade.</p>
         </div>
-        <span class="benefit-icon">📊</span>
+        <span class="benefit-icon">⚖️</span>
       </div>
 
       <div class="benefit-item">
@@ -65,7 +65,8 @@
         </div>
         <span class="benefit-icon">📄</span>
       </div>
-    <div class="benefit-item">
+
+      <div class="benefit-item">
         <div class="benefit-text">
           <h3>Integração com os melhores softwares do mercado</h3>
           <p>O EPIs Control é um módulo de integração muito simples e completo com possibilidade de integração com qualquer software pela nuvem ou até mesmo por planilhas de Excel.</p>
@@ -96,7 +97,7 @@
         </div>
         <span class="benefit-icon">📱</span>
       </div>
-
+      
     </section>
 
     <footer class="main-footer">
