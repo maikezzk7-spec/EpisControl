@@ -1,14 +1,12 @@
 <template>
   <div class="home-container">
     <header class="header">
-      <div class="header-info">
+      <div class="header-content">
         <h1>Gestão de EPI:</h1>
         <p class="subtitle">E o Controle de Equipamento de segurança Individual da sua Empresa</p>
         <p class="subtitle">Para um Ambiente de Trabalho Protegido.</p>
       </div>
-      <div class="nav-button-container">
-        <button class="btn-acesso">Acesso</button>
-      </div>
+      <button class="btn-acesso">Acesso</button>
     </header>
 
     <div class="hero-banner">
@@ -18,12 +16,12 @@
     <h2 class="section-title">Um software de gestão ágil de EPIs que maximiza resultados</h2>
 
     <section class="benefits-grid">
-     <div class="benefit-item">
+      <div class="benefit-item">
         <div class="benefit-text">
-          <h3>Ferramenta completa de gestão de EPIs</h3>
-          <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas de materiais e reúne funcionalidades incríveis para ganho de performance.</p>
+          <h3>Ganhe eficiência na gestão de EPIs</h3>
+          <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas  de materiais e reúne funcionalidades incríveis para ganho de performance.</p>
         </div>
-        <span class="benefit-icon">⏱️</span>
+        <span class="benefit-icon">🕒</span>
       </div>
 
       <div class="benefit-item">
@@ -37,17 +35,17 @@
       <div class="benefit-item">
         <div class="benefit-text">
           <h3>Segurança e confiabilidade</h3>
-          <p>O uso da biometria oferece maior controle e segurança ao empregador, que garante a entrega do equipamento de proteção adequado ao trabalhador certo.</p>
+          <p>O uso da biometria oferece maior controle e segurança ao empregador e garante a entrega do equipamento de proteção adequado ao trabalhador certo.</p>
         </div>
-        <span class="benefit-icon">👆</span>
+        <span class="benefit-icon">☝️</span>
       </div>
 
       <div class="benefit-item">
         <div class="benefit-text">
-          <h3>Controle o consumo indevido de EPIs</h3>
+          <h3>Controle o consumo indevido</h3>
           <p>Evite o uso desnecessário de equipamentos de proteção individual entregando o material específico para cada função, na quantidade ideal e com o certificado de aprovação (CA) válido.</p>
         </div>
-        <span class="benefit-icon">🪖</span>
+        <span class="benefit-icon">⛑️</span>
       </div>
 
       <div class="benefit-item">
@@ -55,7 +53,7 @@
           <h3>Reduza o passivo trabalhista</h3>
           <p>Receba alertas inteligentes sobre a periodicidade de troca dos EPIs dos seus funcionários, controlando a validade dos equipamentos, data de entrega, próxima troca e prazo de validade.</p>
         </div>
-        <span class="benefit-icon">⚖️</span>
+        <span class="benefit-icon">📊</span>
       </div>
 
       <div class="benefit-item">
@@ -65,8 +63,7 @@
         </div>
         <span class="benefit-icon">📄</span>
       </div>
-
-      <div class="benefit-item">
+    <div class="benefit-item">
         <div class="benefit-text">
           <h3>Integração com os melhores softwares do mercado</h3>
           <p>O EPIs Control é um módulo de integração muito simples e completo com possibilidade de integração com qualquer software pela nuvem ou até mesmo por planilhas de Excel.</p>
@@ -97,7 +94,7 @@
         </div>
         <span class="benefit-icon">📱</span>
       </div>
-      
+
     </section>
 
     <footer class="main-footer">
@@ -133,113 +130,84 @@ export default {
   background-color: #050a18;
   color: white;
   min-height: 100vh;
-  padding: 0 0 40px 0;
+  padding: 20px;
   font-family: sans-serif;
 }
 
-/* Header e Botão Acesso */
 .header { 
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative; 
-  padding: 40px 20px;
+  justify-content: center;
+  padding: 60px 20px;
+  position: relative;
+  text-align: center;
 }
 
-.nav-button-container {
-  position: absolute;
-  right: 40px;
-  top: 40px;
+h1 { color: #ffff00; margin-bottom: 5px; }
+
+.subtitle {
+  margin: 2px 0;
+  font-size: 0.9rem;
 }
 
 .btn-acesso { 
-  border: 1.5px solid white; 
+  position: absolute; 
+  right: 0; 
+  top: 20px; 
+  border: 1px solid white; 
   background: none; 
   color: white; 
-  padding: 8px 30px; 
+  padding: 5px 15px; 
   cursor: pointer; 
-  border-radius: 20px; /* Botão estilo pílula do Figma */
-  font-size: 16px;
-  font-weight: 500;
-  transition: 0.3s;
+  border-radius: 4px;
 }
 
-.btn-acesso:hover {
-  background: white;
-  color: #050a18;
+.placeholder-img { 
+  background: #1a2333; 
+  height: 300px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin: 20px 0; 
+  border-bottom: 3px solid #0055ff; 
+  font-weight: bold;
 }
-
-/* Títulos principais */
-h1 { color: #ffff00; font-size: 32px; margin-bottom: 10px; }
-.subtitle { margin: 5px 0; font-size: 18px; opacity: 0.9; }
 
 .section-title { 
   color: #ffff00; 
   text-align: center; 
-  margin: 60px 0 40px 0; 
-  font-size: 28px;
+  margin: 40px 0; 
+  font-size: 1.5rem;
 }
 
-/* Grade de Benefícios com Títulos 24px */
 .benefits-grid { 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: 30px; 
-  padding: 20px 5%;
+  padding: 0 5%;
 }
 
-.benefit-item { 
+.card { 
   display: flex; 
   justify-content: space-between; 
-  align-items: flex-start; 
-  padding: 25px;
+  align-items: center; 
+  padding: 15px;
   border-bottom: 1px solid #1a2333;
 }
 
-.benefit-text h3 {
-  font-size: 24px; /* Tamanho 24 que você notou */
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: white;
+.card-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
-.benefit-text p {
-  font-size: 16px;
-  color: #d1d1d1;
-  line-height: 1.5;
+.card-content p {
+  color: #b0b0b0;
+  font-size: 0.85rem;
 }
 
-.benefit-icon { 
-  font-size: 40px; 
-  color: #ffff00;
-  margin-left: 20px;
+.card-icon { 
+  font-size: 2.5rem; 
+  margin-left: 15px;
 }
-
-/* Banner Principal e Linha Azul */
-.hero-banner {
-  width: 100%;
-  border-bottom: 4px solid #0055ff; /* A linha azul do Figma */
-}
-
-.hero-img, .placeholder-img { 
-  width: 100%;
-  height: 450px;
-  background: #1a2333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  object-fit: cover;
-}
-
-/* Rodapé */
-.main-footer {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 80px;
-  padding: 40px 5%;
-  border-top: 1px solid #1a2333;
-}
-
-.footer-column h4 { color: #ffff00; margin-bottom: 15px; }
-.footer-social { display: flex; gap: 15px; align-items: center; font-size: 24px; }
 </style>
