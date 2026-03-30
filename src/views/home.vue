@@ -152,7 +152,7 @@ h1 { color: #ffff00;
 .subtitle {
   color: white;
   font-size: 1.1rem;
-  margin: 2px 0;
+  margin: 15px 0;
 }
 
 .btn-acesso { 
