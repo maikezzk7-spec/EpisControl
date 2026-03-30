@@ -134,7 +134,7 @@ export default {
   font-family: sans-serif;
 }
 
-.header { 
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,23 +144,27 @@ export default {
   text-align: center;
 }
 
-h1 { color: #ffff00; margin-bottom: 5px; }
+h1 { color: #ffff00;
+  font-size: 2,5rem;
+  margin-bottom: 10px;
+}
 
 .subtitle {
+  color: white;
+  font-size: 1.1rem;
   margin: 2px 0;
-  font-size: 0.9rem;
 }
 
 .btn-acesso { 
-  position: absolute; 
-  right: 0; 
-  top: 20px; 
-  border: 1px solid white; 
-  background: none; 
-  color: white; 
-  padding: 5px 15px; 
-  cursor: pointer; 
-  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 25px;
+  cursor: pointer;
+  border-radius: 0.9px;
 }
 
 .placeholder-img { 
