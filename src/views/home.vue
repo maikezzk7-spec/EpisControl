@@ -96,29 +96,30 @@
       </div>
 
     </section>
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Empresa</h4>
+      <p>EPIs Control</p>
+    </div>
 
-    <footer class="main-footer">
-      <div class="footer-column">
-        <h4>Empresa</h4>
-        <p>EPIs Control</p>
-      </div>
+    <div class="footer-column">
+      <h4>Soluções</h4>
+      <p>EPIs Control ERP</p>
+      <p>EPIs Control EPI</p>
+    </div>
 
-      <div class="footer-column">
-        <h4>Soluções</h4>
-        <p>EPIs Control ERP</p>
-        <p>EPIs Control EPI</p>
-      </div>
+    <div class="footer-column">
+      <h4>Suporte</h4>
+      <p>Atendimento Online</p>
+    </div>
 
-      <div class="footer-column">
-        <h4>Suporte</h4>
-        <p>Atendimento Online</p>
-      </div>
-
-      <div class="footer-social">
-        <span class="social-icon">📸</span>
-        <span class="social-icon">💬</span>
-      </div>
-    </footer>
+    <div class="footer-social">
+      <span class="social-icon">📸</span>
+      <span class="social-icon">💬</span>
+    </div>
+   </div>
+  </footer>
   </div>
 </template>
 
@@ -221,33 +222,50 @@ h1 {
 }
 
 .main-footer {
-display: flex;
-jusfity-content: space-between;
-align-items: flex-start;
-padding: 60px 10%;
+width: 100%;
 background-color: #050a18;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+padding: 80px 10%;
 border-top: 1px solid #1a2333;
+margin-top: 50px;
 }
 
+.footer-container{
+  max-width: 12000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.footer-column{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .footer-column h4 {
 color: #ffff00;
-margin-bottom: 15px;
-font-size: 18px;
+margin: 0px;
+font-size: 20px;
+font-weight: bold;
 }
 
 .footer-column p {
   color: white;
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .force-social{
   display: flex;
   gap: 15px;
+  align-items: flex-start;
 }
 
 .social-icon {
   width: 35px;
-  height: 35px;
+  height: 35px
 }
 </style>
