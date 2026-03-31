@@ -208,12 +208,12 @@ h1 {
 
 .card-content h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 24px;
 }
 
 .card-content p {
   color: #b0b0b0;
-  font-size: 0.85rem;
+  font-size: 16px;
 }
 
 .card-icon { 
