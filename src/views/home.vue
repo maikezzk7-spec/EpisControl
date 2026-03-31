@@ -102,15 +102,18 @@
         <h4>Empresa</h4>
         <p>EPIs Control</p>
       </div>
+
       <div class="footer-column">
         <h4>Soluções</h4>
         <p>EPIs Control ERP</p>
         <p>EPIs Control EPI</p>
       </div>
+
       <div class="footer-column">
         <h4>Suporte</h4>
         <p>Atendimento Online</p>
       </div>
+
       <div class="footer-social">
         <span class="social-icon">📸</span>
         <span class="social-icon">💬</span>
@@ -126,6 +129,7 @@ export default {
 </script>
 
 <style scoped>
+
 .home-container {
   background-color: #050a18;
   color: white;
@@ -144,7 +148,8 @@ export default {
   text-align: center;
 }
 
-h1 { color: #ffff00;
+h1 {
+  color: #ffff00;
   font-size: 2,5rem;
   margin-bottom: 10px;
 }
@@ -213,5 +218,36 @@ h1 { color: #ffff00;
 .card-icon { 
   font-size: 2.5rem; 
   margin-left: 15px;
+}
+
+.main-footer {
+display: flex;
+jusfity-content: space-between;
+align-items: flex-start;
+padding: 60px 10%;
+background-color: #050a18;
+border-top: 1px solid #1a2333;
+}
+
+.footer-column h4 {
+color: #ffff00;
+margin-bottom: 15px;
+font-size: 18px;
+}
+
+.footer-column p {
+  color: white;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.force-social{
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 35px;
+  height: 35px;
 }
 </style>
