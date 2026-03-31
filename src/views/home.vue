@@ -222,43 +222,41 @@ h1 {
 }
 
 .main-footer {
-width: 100%;
-background-color: #050a18;
-display: flex;
-justify-content: space-between;
-align-items: flex-start;
-padding: 80px 10%;
-border-top: 1px solid #1a2333;
-margin-top: 50px;
+  width: 100%;
+  background-color: #050a18;
+  border-top: 1px solid #1a2333;
+  margin-top: 50px;
+  padding: 60px 0;
 }
 
-.footer-container{
-  max-width: 12000px;
+.footer-container {
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 10%;
 }
 
-.footer-column{
+.footer-column {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .footer-column h4 {
-color: #ffff00;
-margin: 0px;
-font-size: 20px;
-font-weight: bold;
+  color: #ffff00;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .footer-column p {
   color: white;
-  margin: 5px 0;
+  margin: 0;
   font-size: 16px;
 }
 
-.force-social{
+.footer-social {
   display: flex;
   gap: 15px;
   align-items: flex-start;
