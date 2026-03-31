@@ -150,9 +150,12 @@ h1 { color: #ffff00;
 }
 
 .subtitle {
-  color: white;
-  font-size: 1.1rem;
-  margin: 10px 0;
+ display: block;
+ margin: 15px 0;
+font-size: 1.1rem;
+opacity: 0.9;
+line-height: 1.6;
+text-align: center;
 }
 
 .btn-acesso { 
