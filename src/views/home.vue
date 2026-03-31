@@ -208,7 +208,7 @@ h1 {
 
 .card-content h3 {
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .card-content p {
