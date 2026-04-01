@@ -9,9 +9,9 @@
       <button class="btn-acesso">Acesso</button>
     </header>
 
-    <div class="hero-banner">
-      <div class="placeholder-img">IMAGEM DOS TRABALHADORES</div>
-    </div>
+<div class="hero-banner">
+  <img :src="imgTrabalhadores" alt="Trabalhadores" />
+</div>
 
     <h2 class="section-title">Um software de gestão ágil de EPIs que maximiza resultados</h2>
 
@@ -124,8 +124,17 @@
 </template>
 
 <script>
+// Aqui a gente avisa ao sistema que a imagem existe e onde ela está
+import imagemTrabalhadores from '../assets/trabalhadores.png';
+
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  data() {
+    return {
+      // Aqui a gente cria uma "variável" que o HTML vai conseguir ler
+      imgTrabalhadores: imagemTrabalhadores
+    }
+  }
 }
 </script>
 
@@ -145,6 +154,30 @@ export default {
   align-items: center;
   justify-content: space-between;
   text-align: center;
+}
+
+.hero-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0; /* 40px de respiro em cima e embaixo */
+}
+
+.img-trabalhadores {
+  width: 1770px;       /* Largura fixa para manter o padrão Figma */
+  height: 596px;       /* Altura fixa em px */
+  object-fit: cover;   /* Não deixa a imagem esticar nem amassar */
+  border-radius: 9px; /* Bordas arredondadas profissionais */
+  border-bottom: 6px solid #0055ff; /* Aquele detalhe azul de destaque */
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade */
+  transition: transform 0.4s ease, filter 0.4s ease; /* Preparo para o Hover Pro */
+}
+
+/* REGRA 4: HOVER PRO SUGERIDO */
+.img-trabalhadores:hover {
+  transform: scale(1.02); /* Sobe de leve, vindo na direção do usuário */
+  filter: brightness(1.1) saturate(1.1); /* Dá um brilho e destaca a cor dos EPIs */
+  cursor: pointer;
 }
 
 h1 {
