@@ -143,34 +143,41 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  position: relative;
+  justify-content: space-between;
   text-align: center;
 }
 
 h1 {
   color: #ffff00;
-  font-size: 2,5rem;
+  font-size: 38px;
   margin-bottom: 10px;
 }
 
 .subtitle {
   color: white;
-  font-size: 1.1rem;
-  margin: 10px 0;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 5px 0;
 }
 
 .btn-acesso { 
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  background: transparent;
-  color: white;
-  border: 1px solid white;
-  padding: 8px 25px;
-  cursor: pointer;
-  border-radius: 0.9px;
+background:transparent;
+color: white;
+border: 3.3px solid white;
+padding: 8px 20px;
+cursor: pointer;
+border-radius: 45px;
+font-size: 20px;
+position: absolute;
+top: 68px;
+right: 45px;
+transition: transform 0.3s ease-in-out;
+}
+
+.btn-acesso:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
 .placeholder-img { 
@@ -206,14 +213,16 @@ h1 {
   border-bottom: 1px solid #1a2333;
 }
 
-.card-content h3 {
-  margin: 0;
-  font-size: 30px;
+.benefit-text h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
-.card-content p {
-  color: #b0b0b0;
-  font-size: 16px;
+.benefit-text p {
+  color: white;
+  font-size: 19px;
+  line-height: 1.4;
 }
 
 .card-icon { 
