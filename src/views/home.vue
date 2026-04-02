@@ -10,7 +10,7 @@
     </header>
 
 <div class="hero-banner">
-  <img :src="imgTrabalhadores" alt="Trabalhadores" />
+  <img :src="imgTrabalhadores" alt="Trabalhadores" class="img-trabalhadores" />
 </div>
 
     <h2 class="section-title">Um software de gestão ágil de EPIs que maximiza resultados</h2>
@@ -160,24 +160,27 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 40px 0; /* 40px de respiro em cima e embaixo */
+  padding: 20px 0; /* Espaçamento em px em cima e embaixo */
 }
 
+/* 2. O código que dá "vida" e tamanho real para a imagem */
 .img-trabalhadores {
-  width: 1770px;       /* Largura fixa para manter o padrão Figma */
-  height: 596px;       /* Altura fixa em px */
-  object-fit: cover;   /* Não deixa a imagem esticar nem amassar */
-  border-radius: 9px; /* Bordas arredondadas profissionais */
-  border-bottom: 6px solid #0055ff; /* Aquele detalhe azul de destaque */
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade */
-  transition: transform 0.4s ease, filter 0.4s ease; /* Preparo para o Hover Pro */
+  width: 1595px;        /* Largura fixa em px conforme o padrão Figma */
+  height: 600px;        /* Altura fixa em px */
+  object-fit: cover;    /* REGRA: Impede que a imagem fique amassada */
+  border-radius: 10px;  /* Bordas arredondadas profissionais */
+  border-bottom: 6px solid #0055ff; /* Detalhe azul de destaque */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+  
+  /* Isso aqui é o segredo para ela "se mexer" suavemente */
+  transition: transform 0.4s ease, filter 0.4s ease; 
+  cursor: pointer;
 }
 
-/* REGRA 4: HOVER PRO SUGERIDO */
+/* 3. REGRA 4: O efeito Hover Pro (Quando o mouse passa em cima) */
 .img-trabalhadores:hover {
-  transform: scale(1.02); /* Sobe de leve, vindo na direção do usuário */
-  filter: brightness(1.1) saturate(1.1); /* Dá um brilho e destaca a cor dos EPIs */
-  cursor: pointer;
+  transform: scale(1.03);    /* A imagem cresce 3% suavemente */
+  filter: brightness(1.2);   /* Ela ganha um brilho extra */
 }
 
 h1 {
