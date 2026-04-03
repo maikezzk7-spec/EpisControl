@@ -15,87 +15,88 @@
 
     <h2 class="section-title">Um software de gestão ágil de EPIs que maximiza resultados</h2>
 
-    <section class="benefits-grid">
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Ganhe eficiência na gestão de EPIs</h3>
-          <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas  de materiais e reúne funcionalidades incríveis para ganho de performance.</p>
-        </div>
-        <span class="benefit-icon">🕒</span>
-      </div>
+<section class="benefits-grid">
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Ganhe eficiência na gestão de EPIs</h3>
+      <p>Ferramenta completa de gestão de EPIs que possibilita cadastrar, consultar e acompanhar as entregas de materiais.</p>
+    </div>
+    <img src="../assets/relogio.svg" alt="Eficiência" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Otimize seus gastos com equipamentos</h3>
-          <p>Controle os custos com EPIs através de relatórios completos que entregam informações detalhadas sobre a durabilidade dos produtos, o tempo de uso, os gastos por setor e muito mais!</p>
-        </div>
-        <span class="benefit-icon">💰</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Otimize seus gastos com equipamentos</h3>
+      <p>Controle os custos com EPIs através de relatórios completos que entregam informações detalhadas.</p>
+    </div>
+    <img src="../assets/dinheiro.svg" alt="Gastos" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Segurança e confiabilidade</h3>
-          <p>O uso da biometria oferece maior controle e segurança ao empregador e garante a entrega do equipamento de proteção adequado ao trabalhador certo.</p>
-        </div>
-        <span class="benefit-icon">☝️</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Segurança e confiabilidade</h3>
+      <p>O uso da biometria oferece maior controle e segurança ao empregador e garante a entrega correta.</p>
+    </div>
+    <img src="../assets/biometria.svg" alt="Segurança" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Controle o consumo indevido</h3>
-          <p>Evite o uso desnecessário de equipamentos de proteção individual entregando o material específico para cada função, na quantidade ideal e com o certificado de aprovação (CA) válido.</p>
-        </div>
-        <span class="benefit-icon">⛑️</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Controle o consumo indevido</h3>
+      <p>Evite o uso desnecessário entregando o material específico para cada função na quantidade ideal.</p>
+    </div>
+    <img src="../assets/capacete.svg" alt="Controle" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Reduza o passivo trabalhista</h3>
-          <p>Receba alertas inteligentes sobre a periodicidade de troca dos EPIs dos seus funcionários, controlando a validade dos equipamentos, data de entrega, próxima troca e prazo de validade.</p>
-        </div>
-        <span class="benefit-icon">📊</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Reduza o passivo trabalhista</h3>
+      <p>Receba alertas inteligentes sobre a periodicidade de troca dos EPIs dos seus funcionários.</p>
+    </div>
+    <img src="../assets/grafico.svg" alt="Passivo" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>eSocial</h3>
-          <p>O EPIs Control possui todos os registros e informações que o departamento de RH precisa para transmitir ao eSocial.</p>
-        </div>
-        <span class="benefit-icon">📄</span>
-      </div>
-    <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Integração com os melhores softwares do mercado</h3>
-          <p>O EPIs Control é um módulo de integração muito simples e completo com possibilidade de integração com qualquer software pela nuvem ou até mesmo por planilhas de Excel.</p>
-        </div>
-        <span class="benefit-icon">🌐</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>eSocial</h3>
+      <p>O EPIs Control possui todos os registros e informações que o departamento de RH precisa.</p>
+    </div>
+    <img src="../assets/documento.svg" alt="eSocial" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Treinamento</h3>
-          <p>Controle os treinamentos para uso de EPIs da forma correta através do EPIs Control. Registre os treinamentos ministrados pela empresa e comprove que os funcionários realmente participaram.</p>
-        </div>
-        <span class="benefit-icon">👨‍🏫</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Integração com os melhores softwares</h3>
+      <p>Módulo de integração muito simples e completo com qualquer software pela nuvem ou Excel.</p>
+    </div>
+    <img src="../assets/nuvem.svg" alt="Integração" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Conformidade com as normas e auditorias</h3>
-          <p>O EPIs Control permite que as empresas fiquem de acordo com as normativas regulamentadoras e auditorias além do sistema estar sempre atualizado de acordo com as leis vigentes.</p>
-        </div>
-        <span class="benefit-icon">🔍</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Treinamento</h3>
+      <p>Controle os treinamentos para uso de EPIs da forma correta através do EPIs Control.</p>
+    </div>
+    <img src="../assets/professor.svg" alt="Treinamento" class="benefit-img">
+  </div>
 
-      <div class="benefit-item">
-        <div class="benefit-text">
-          <h3>Acessibilidade na palma da sua mão</h3>
-          <p>Acesse o EPIs Control de qualquer dispositivo, a qualquer momento e em tempo real.</p>
-        </div>
-        <span class="benefit-icon">📱</span>
-      </div>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Conformidade com as normas</h3>
+      <p>Permite que as empresas fiquem de acordo com as normativas regulamentadoras e auditorias.</p>
+    </div>
+    <img src="../assets/lupa.svg" alt="Conformidade" class="benefit-img">
+  </div>
 
-    </section>
+  <div class="benefit-item">
+    <div class="benefit-text">
+      <h3>Acessibilidade na palma da mão</h3>
+      <p>Acesse o EPIs Control de qualquer dispositivo, a qualquer momento e em tempo real.</p>
+    </div>
+    <img src="../assets/celular.svg" alt="Acessibilidade" class="benefit-img">
+  </div>
+</section>
+
 <footer class="main-footer">
   <div class="footer-container">
     <div class="footer-column">
