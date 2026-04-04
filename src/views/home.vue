@@ -37,7 +37,7 @@
       <h3>Segurança e confiabilidade</h3>
       <p>O uso da biometria oferece maior controle e segurança ao empregador e garante a entrega correta.</p>
     </div>
-    <img src="../assets/biometria.svg" alt="Segurança" class="benefit-img">
+    <img src="../assets/dedo.svg" alt="Segurança" class="benefit-img">
   </div>
 
   <div class="benefit-item">
@@ -53,7 +53,7 @@
       <h3>Reduza o passivo trabalhista</h3>
       <p>Receba alertas inteligentes sobre a periodicidade de troca dos EPIs dos seus funcionários.</p>
     </div>
-    <img src="../assets/grafico.svg" alt="Passivo" class="benefit-img">
+    <img src="../assets/trabalhador.svg" alt="Passivo" class="benefit-img">
   </div>
 
   <div class="benefit-item">
@@ -61,7 +61,7 @@
       <h3>eSocial</h3>
       <p>O EPIs Control possui todos os registros e informações que o departamento de RH precisa.</p>
     </div>
-    <img src="../assets/documento.svg" alt="eSocial" class="benefit-img">
+    <img src="../assets/pasta.svg" alt="eSocial" class="benefit-img">
   </div>
 
   <div class="benefit-item">
@@ -69,7 +69,7 @@
       <h3>Integração com os melhores softwares</h3>
       <p>Módulo de integração muito simples e completo com qualquer software pela nuvem ou Excel.</p>
     </div>
-    <img src="../assets/nuvem.svg" alt="Integração" class="benefit-img">
+    <img src="../assets/sotfwar.svg" alt="Integração" class="benefit-img">
   </div>
 
   <div class="benefit-item">
@@ -77,7 +77,7 @@
       <h3>Treinamento</h3>
       <p>Controle os treinamentos para uso de EPIs da forma correta através do EPIs Control.</p>
     </div>
-    <img src="../assets/professor.svg" alt="Treinamento" class="benefit-img">
+    <img src="../assets/treinamento.svg" alt="Treinamento" class="benefit-img">
   </div>
 
   <div class="benefit-item">
@@ -115,10 +115,10 @@
       <p>Atendimento Online</p>
     </div>
 
-    <div class="footer-social">
-      <span class="social-icon">📸</span>
-      <span class="social-icon">💬</span>
-    </div>
+<div class="footer-social">
+  <img src="../assets/instagram.svg" alt="Instagram" class="social-icon">
+  <img src="../assets/whatsapp.svg" alt="WhatsApp" class="social-icon">
+</div>
    </div>
   </footer>
   </div>
@@ -155,6 +155,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  padding: 8px 0;
 }
 
 .hero-banner {
@@ -166,14 +167,12 @@ export default {
 
 /* 2. O código que dá "vida" e tamanho real para a imagem */
 .img-trabalhadores {
-  width: 1595px;        /* Largura fixa em px conforme o padrão Figma */
-  height: 600px;        /* Altura fixa em px */
+  width: 1100PX;        /* Largura fixa em px conforme o padrão Figma */
+  height: 500px;        /* Altura fixa em px */
   object-fit: cover;    /* REGRA: Impede que a imagem fique amassada */
   border-radius: 10px;  /* Bordas arredondadas profissionais */
   border-bottom: 6px solid #0055ff; /* Detalhe azul de destaque */
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
-  
-  /* Isso aqui é o segredo para ela "se mexer" suavemente */
   transition: transform 0.4s ease, filter 0.4s ease; 
   cursor: pointer;
 }
@@ -186,46 +185,37 @@ export default {
 
 h1 {
   color: #ffff00;
-  font-size: 38px;
-  margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 5px;
 }
 
 .subtitle {
   color: white;
-  font-size: 24px;
-  line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.2;
   font-weight: 600;
-  margin: 5px 0;
+  margin: 2px 0;
 }
 
 .btn-acesso { 
 background:transparent;
 color: white;
-border: 3.3px solid white;
-padding: 8px 20px;
+border: 2px solid white;
+padding: 5px 15px;
 cursor: pointer;
 border-radius: 45px;
-font-size: 20px;
+font-size: 16px;
 position: absolute;
-top: 68px;
-right: 45px;
-transition: transform 0.3s ease-in-out;
+top: 61px;
+right: 46px;
+transition: all 0.3s ease;
+cursor: pointer;
 }
 
 .btn-acesso:hover {
   transform: scale(1.05);
   filter: brightness(1.2);
-}
-
-.placeholder-img { 
-  background: #1a2333; 
-  height: 300px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  margin: 20px 0; 
-  border-bottom: 3px solid #0055ff; 
-  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .section-title { 
@@ -242,29 +232,39 @@ transition: transform 0.3s ease-in-out;
   padding: 0 5%;
 }
 
-.card { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 15px;
-  border-bottom: 1px solid #1a2333;
-}
-
 .benefit-text h3 {
   color: white;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .benefit-text p {
   color: white;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
-.card-icon { 
-  font-size: 2.5rem; 
-  margin-left: 15px;
+.benefit-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0; 
+}
+
+.benefit-item {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 15px 0;
+ border-color: #fbc02d;
+ border-bottom: 1px solid #1a2333;
+ width: 100%;
+}
+
+.benefit-text{
+  flex: 1;
+  padding-right: 20px;
+  text-align: left;
 }
 
 .main-footer {
@@ -304,12 +304,23 @@ transition: transform 0.3s ease-in-out;
 
 .footer-social {
   display: flex;
-  gap: 15px;
-  align-items: flex-start;
+  gap: 20px;
+  align-items: center;
+  perspective: 1000px;
 }
 
 .social-icon {
-  width: 35px;
-  height: 35px
+  width: 65px;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  backface-visibility: visible;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: translateY(-10px) rotateY(360deg);
 }
 </style>
