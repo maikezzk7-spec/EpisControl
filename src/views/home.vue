@@ -6,7 +6,8 @@
         <p class="subtitle">E o Controle de Equipamento de segurança Individual da sua Empresa</p>
         <p class="subtitle">Para um Ambiente de Trabalho Protegido.</p>
       </div>
-      <button class="btn-acesso">Acesso</button>
+
+<router-link to="/login" class="btn-acesso">Acesso</router-link>
     </header>
 
 <div class="hero-banner">
@@ -210,6 +211,7 @@ top: 61px;
 right: 46px;
 transition: all 0.3s ease;
 cursor: pointer;
+text-decoration: none;
 }
 
 .btn-acesso:hover {
