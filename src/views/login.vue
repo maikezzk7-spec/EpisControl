@@ -58,7 +58,7 @@
 }
 /* O Card estilo Vidro (Glassmorphism) */
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(12px);
   padding: 50px 40px;
   border-radius: 24px;
@@ -92,9 +92,9 @@
 
 /* Input com o traço azul neon da sua imagem */
 .neon-input {
-  width: 100%;
+  width: 92%;
   padding: 14px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.8);
   border: 1px solid #334155;
   border-radius: 12px;
   color: #fff;
