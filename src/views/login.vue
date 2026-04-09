@@ -1,8 +1,9 @@
 <template>
   <div class="login-page">
-    <div class="side-brand">
+    <div class="side-brand"> 
       <h1>Epis Control</h1>
     </div>
+
     <div class="glass-card">
       <h1 class="login-title">LOGIN</h1>
 
@@ -34,12 +35,19 @@
   align-items: center;
   background: radial-gradient(circle, #0f172a 0%, #020617 100%);
   font-family: 'Inter', sans-serif;
+/* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO SVG --- */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                    url('../assets/worker.svg'); 
+  background-size: cover; /* Garante que o SVG cubra a tela toda */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* ------------------------------------------- */
 }
 
 .side-brand {
   position: absolute;
-  left: 20px; /* Distância da borda esquerda */
-  top: 8%; /* Centraliza verticalmente */
+  left: 8px; /* Distância da borda esquerda */
+  top: 3%; /* Centraliza verticalmente */
   transform: translateY(-50%); /* Ajuste de precisão do centro */
   color: #F7FF00; /* A cor que você pediu */
   font-size: 10px;
@@ -50,7 +58,7 @@
 }
 /* O Card estilo Vidro (Glassmorphism) */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(12px);
   padding: 50px 40px;
   border-radius: 24px;
