@@ -36,7 +36,7 @@
   background: radial-gradient(circle, #0f172a 0%, #020617 100%);
   font-family: 'Inter', sans-serif;
 /* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO SVG --- */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), 
                     url('../assets/worker.svg'); 
   background-size: cover; /* Garante que o SVG cubra a tela toda */
   background-position: center;
