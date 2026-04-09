@@ -146,7 +146,6 @@ export default {
   background-color: #050a18;
   color: white;
   min-height: 100vh;
-  padding: 20px;
   font-family: sans-serif;
 }
 
@@ -207,8 +206,8 @@ cursor: pointer;
 border-radius: 45px;
 font-size: 16px;
 position: absolute;
-top: 61px;
-right: 46px;
+top: 35px;
+right: 30px;
 transition: all 0.3s ease;
 cursor: pointer;
 text-decoration: none;
