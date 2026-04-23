@@ -7,17 +7,35 @@
     <div class="glass-card">
       <h1 class="login-title">LOGIN</h1>
 
-      <div class="input-wrapper">
-        <label>Usuário</label>
-        <input type="text" placeholder="Seu usuário" class="neon-input">
-      </div>
+      <form @submit.prevent="fazerLogin">
+        <div class="input-wrapper">
+          <label>E-mail</label>
+          <input v-model="email" type="email" placeholder="seu@email.com" class="neon-input" required>
+        </div>
 
-      <div class="input-wrapper">
-        <label>Senha</label>
-        <input type="password" placeholder="Sua senha" class="neon-input">
-      </div>
+        <div class="input-wrapper">
+          <label>Senha</label>
+          <div class="password-container">
+            <input 
+              v-model="senha"  
+              :type="mostrarSenha ? 'text': 'password'"
+              placeholder="Sua senha" 
+              class="neon-input"
+              required
+            >
+            <span class="toggle-eye" @click="mostrarSenha = !mostrarSenha">
+              <i :class="mostrarSenha ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+            </span>
+          </div>
+        </div>
 
-      <button class="btn-neon">ENTRAR</button>
+        <div v-if="erro" class="error-message">{{ erro }}</div>
+
+        <button type="submit" class="btn-neon" :disabled="carregando">
+          <span v-if="carregando">ENTRANDO...</span>
+          <span v-else>ENTRAR</span>
+        </button>
+      </form>
 
       <div class="footer-links">
         <router-link to="/cadastro" class="signup-link">Não tem conta? Cadastre-se</router-link>
@@ -26,8 +44,45 @@
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import { useSupabase } from '../composables/useSupabase'
+import { useRouter } from 'vue-router'
+
+const { supabase } = useSupabase()
+const router = useRouter()
+
+const email = ref('')
+const senha = ref('')
+const erro = ref('')
+const carregando = ref(false)
+const mostrarSenha = ref(false)
+
+async function fazerLogin() {
+  erro.value = ''
+  if (!email.value || !senha.value) return
+  carregando.value = true
+
+  try {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.value,
+      password: senha.value
+    })
+
+    if (error) {
+      erro.value = 'E-mail ou senha incorretos.'
+      return
+    }
+    router.push('/dashboard')
+  } catch (err) {
+    erro.value = 'Erro ao conectar ao sistema.'
+  } finally {
+    carregando.value = false
+  }
+}
+</script>
+
 <style scoped>
-/* O fundo exato da sua imagem */
 .login-page {
   height: 100vh;
   display: flex;
@@ -35,28 +90,22 @@
   align-items: center;
   background: radial-gradient(circle, #0f172a 0%, #020617 100%);
   font-family: 'Inter', sans-serif;
-/* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO SVG --- */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), 
-                    url('../assets/worker.svg'); 
-  background-size: cover; /* Garante que o SVG cubra a tela toda */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url('../assets/worker.svg'); 
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  /* ------------------------------------------- */
 }
 
 .side-brand {
   position: absolute;
-  left: 8px; /* Distância da borda esquerda */
-  top: 3%; /* Centraliza verticalmente */
-  transform: translateY(-50%); /* Ajuste de precisão do centro */
-  color: #F7FF00; /* A cor que você pediu */
+  left: 8px;
+  top: 3%;
+  color: #F7FF00;
   font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
-  pointer-events: none; /* Pro usuário não clicar sem querer */
 }
-/* O Card estilo Vidro (Glassmorphism) */
+
 .glass-card {
   background: rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(12px);
@@ -66,7 +115,6 @@
   width: 100%;
   max-width: 380px;
   text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .login-title {
@@ -90,10 +138,14 @@
   display: block;
 }
 
-/* Input com o traço azul neon da sua imagem */
+.password-container {
+  position: relative;
+}
+
 .neon-input {
-  width: 92%;
-  padding: 14px;
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 14px 45px 14px 14px; /* Unificado: o 45px protege o texto do ícone */
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #334155;
   border-radius: 12px;
@@ -103,11 +155,10 @@
 }
 
 .neon-input:focus {
-  border-color: #38bdf8; /* Azul claro neon */
+  border-color: #38bdf8;
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
-/* O Botão de destaque da sua foto */
 .btn-neon {
   width: 100%;
   padding: 16px;
@@ -116,30 +167,39 @@
   border: none;
   border-radius: 12px;
   font-weight: 800;
-  font-size: 15px;
   cursor: pointer;
   margin-top: 10px;
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
 
-.btn-neon:hover {
+.btn-neon:hover:not(:disabled) {
   filter: brightness(1.1);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
   transform: translateY(-2px);
 }
 
-/* Tirando o traço debaixo do link como você pediu */
+.error-message {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 .signup-link {
   display: block;
   margin-top: 25px;
   color: #94a3b8;
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.3s;
 }
 
-.signup-link:hover {
+.toggle-eye {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
   color: #38bdf8;
+  z-index: 10;
 }
 </style>

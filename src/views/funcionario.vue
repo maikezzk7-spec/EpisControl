@@ -7,6 +7,6 @@
 
 <script>
 export default {
-name: 'relatorio'
+name: 'funcionario'
 }
 </script>
