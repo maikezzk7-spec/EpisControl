@@ -1,8 +1,8 @@
 <template>
   <div class="login-page">
-    <div class="side-brand"> 
-      <h1>Epis Control</h1>
-    </div>
+    <header class="main-header">
+      <h1 class="logo-text">EPIS <span class="highlight">CONTROL</span></h1>
+    </header>
 
     <div class="glass-card">
       <h1 class="login-title">LOGIN</h1>
@@ -95,15 +95,34 @@ async function fazerLogin() {
   background-position: center;
 }
 
-.side-brand {
+.main-header {
   position: absolute;
-  left: 8px;
-  top: 3%;
-  color: #F7FF00;
-  font-size: 10px;
-  font-weight: 900;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+}
+
+.logo-text .highlight {
+  color: #F7FF00;
+  font-weight: 900;
+  text-shadow: 0 0 12px rgba(247, 255, 0, 0.4);
+  margin-left: 8px;
 }
 
 .glass-card {
