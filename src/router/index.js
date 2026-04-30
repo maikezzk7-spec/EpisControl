@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import home from '../views/home.vue'
 import login from '../views/login.vue'
 import cadastro from '../views/cadastro.vue'
-import entregas_epis from '../views/entrega_epis.vue'
+import entrega_epis from '../views/entrega_epis.vue'
 import historico_epis from '../views/historico_epis.vue'
 import dashboard from '../views/dashboard.vue'
 import epis from '../views/epis.vue'
@@ -28,7 +28,7 @@ const routes = [
     component: dashboard,
     meta: { requiresAuth: true },
     children: [
-      { path: 'entregas_epis', component: entregas_epis },
+      { path: 'entrega_epis', component: entrega_epis },
       { path: 'historico_epis', component: historico_epis },
       { path: 'epis', component: epis },
       { path: 'funcionario', component: funcionario }
