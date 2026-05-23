@@ -7,7 +7,6 @@ import historico_epis from '../views/historico_epis.vue'
 import dashboard from '../views/dashboard.vue'
 import epis from '../views/epis.vue'
 import funcionario from '../views/funcionario.vue'
-import { useSupabase } from '../composables/useSupabase'
 
 const routes = [
   { 
@@ -22,12 +21,12 @@ const routes = [
     path: '/cadastro', 
     component: cadastro 
   },
-
   {
     path: '/dashboard',
     component: dashboard,
     meta: { requiresAuth: true },
     children: [
+      { path: 'home', redirect: '/dashboard' },
       { path: 'entrega_epis', component: entrega_epis },
       { path: 'historico_epis', component: historico_epis },
       { path: 'epis', component: epis },
