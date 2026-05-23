@@ -117,9 +117,9 @@
                     )"
                     :key="entrega.id"
                     >
-                    <td>{{ entrega.funcionario_id}}</td>
-                    <td>{{ entrega.epi_id }}</td>
-                    <td>{{ entrega.data_entrega}}</td>
+                    <td>{{ entrega.funcionarios?.nome }}</td>
+                    <td>{{ entrega.epis?.nome }}</td>
+                    <td>{{ new Date(entrega.data_entrega).toLocaleDateString('pt-BR') }}</td>
                     <td>{{ entrega.quantidade }}</td>
                     <td>
                       <span 
@@ -161,19 +161,23 @@ const totalEpis = ref(0)
 const totalEntregas = ref(0)
 const totalVencendo = ref(0)
 const entregas = ref([])
+const entregasValidas = ref([])
 
   /* FUNÇÃO DA TABELA */
 async function carregarEntregas() {
 
   const { data, error } = await supabase
     .from('entregas')
-   .select(`
-  *,
-  epis (
-    validade_dias,
-    nome
-  )
-`)
+    .select(`
+      *,
+      epis (
+        nome,
+       validade_dias
+     ),
+     funcionarios (
+     nome
+    )
+ `)
 
   if (error) {
     console.error(error)
@@ -181,6 +185,7 @@ async function carregarEntregas() {
   }
 
    console.log(data)
+
 
    entregas.value = data.map(entrega => {
 
@@ -240,13 +245,13 @@ async function carregarCards() {
   const { count: vencendo } = await supabase
     .from('epis')
     .select('*', { count: 'exact', head: true })
-    .lte('validade_dias', '2026-12-31')
+    .lte('validade_dias', 90)
 
   totalVencendo.value = vencendo || 0
 }
 
 /* EXECUTA AUTOMATICAMENTE */
-onMounted(() => {
+  onMounted(() => {
   carregarCards()
   carregarEntregas()
 })
