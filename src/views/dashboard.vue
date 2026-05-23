@@ -260,9 +260,9 @@ async function carregarCards() {
 })
 
 async function sair() {
+  router.push('/login')
   try {
     await supabase.auth.signOut()
-    router.push('/login')
   } catch (err) {
     console.error('Erro ao encerrar sessão:', err)
   }
