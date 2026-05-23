@@ -117,7 +117,9 @@
                     >
                     <td>{{ entrega.funcionarios?.nome }}</td>
                     <td>{{ entrega.epis?.nome }}</td>
-                    <td>{{ new Date(entrega.data_entrega).toLocaleDateString('pt-BR') }}</td>
+                    <td>{{entrega.data_entrega
+                          ? new Date(entrega.data_entrega).toLocaleDateString('pt-BR')
+                          : '-' }}</td>
                     <td>{{ entrega.quantidade }}</td>
                     <td>
                       <span 
