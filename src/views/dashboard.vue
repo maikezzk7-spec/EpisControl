@@ -158,7 +158,6 @@ const totalFuncionarios = ref(0)
 const totalEpis = ref(0)
 const totalEntregas = ref(0)
 const totalVencendo = ref(0)
-const entregas = ref([])
 const entregasValidas = ref([])
 
   /* FUNÇÃO DA TABELA */
@@ -182,16 +181,16 @@ async function carregarEntregas() {
     return
   }
 
-   console.log(data)
-
-
-   const entregasProcessadas = data.map(entrega => {
+   const entregasProcessadas = (data || []).map(entrega => {
 
     let status = 'Boa'
 
    const validadeDias = entrega.epis?.validade_dias || 0
 
-   const dataEntrega = new Date(entrega.data_entrega)
+   const dataEntrega = entrega.data_entrega
+   ? new Date(entrega.data_entrega)
+   : new Date()
+
    const hoje = new Date()
 
    const diasPassados = Math.floor(
@@ -200,9 +199,9 @@ async function carregarEntregas() {
 
    const diasRestantes = validadeDias - diasPassados
 
-    if (diasRestantes > 90) {
+    if (diasRestantes > 30) {
       status = 'Boa'
-    } else if (diasRestantes > 30) {
+    } else if (diasRestantes > 7) {
       status = 'Regular'
     } else {
       status = 'Descartar'
@@ -213,7 +212,6 @@ async function carregarEntregas() {
       status
     }
   })
-  entregas.value = entregasProcessadas
 
   entregasValidas.value = entregasProcessadas.filter(
     entrega => entrega.funcionario_id && entrega.epi_id
