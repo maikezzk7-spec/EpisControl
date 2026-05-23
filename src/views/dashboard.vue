@@ -147,23 +147,23 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
-import { useSupabase } from '../composables/useSupabase'
-import { useRouter, RouterLink, RouterView } from 'vue-router'
+ <script setup>
+ import { ref, onMounted } from 'vue'
+ import { useSupabase } from '../composables/useSupabase'
+ import { useRouter, RouterLink, RouterView } from 'vue-router'
 
-const { supabase } = useSupabase()
-const router = useRouter()
+ const { supabase } = useSupabase()
+ const router = useRouter()
 
 /* CARDS */
-const totalFuncionarios = ref(0)
-const totalEpis = ref(0)
-const totalEntregas = ref(0)
-const totalVencendo = ref(0)
-const entregasValidas = ref([])
+ const totalFuncionarios = ref(0)
+ const totalEpis = ref(0)
+ const totalEntregas = ref(0)
+ const totalVencendo = ref(0)
+ const entregasValidas = ref([])
 
   /* FUNÇÃO DA TABELA */
-async function carregarEntregas() {
+ async function carregarEntregas() {
 
   const { data, error } = await supabase
     .from('entregas')
@@ -197,7 +197,7 @@ async function carregarEntregas() {
 
    const diasPassados = Math.floor(
    (hoje - dataEntrega) / (1000 * 60 * 60 * 24)
-)
+ )
 
    const diasRestantes = validadeDias - diasPassados
 
@@ -217,8 +217,8 @@ async function carregarEntregas() {
 
   entregasValidas.value = entregasProcessadas.filter(
     entrega => entrega.funcionario_id && entrega.epi_id
-)
-}
+ )
+ }
 
 /* FUNÇÃO DOS CARDS */
 async function carregarCards() {
