@@ -187,7 +187,7 @@ async function carregarEntregas() {
    console.log(data)
 
 
-   entregas.value = data.map(entrega => {
+   const entregasProcessadas = data.map(entrega => {
 
     let status = 'Boa'
 
@@ -215,6 +215,11 @@ async function carregarEntregas() {
       status
     }
   })
+  entregas.value = entregasProcessadas
+
+  entregasValidas.value = entregasProcessadas.filter(
+    entrega => entrega.funcionario_id && entrega.epi_id
+)
 }
 
 /* FUNÇÃO DOS CARDS */
