@@ -112,9 +112,7 @@
                 </thead>
                 <tbody>
                   <tr
-                    v-for="entrega in entregas.filter(
-                      e => e.funcionario_id && e.epi_id
-                    )"
+                    v-for="entrega in entregasValidas"
                     :key="entrega.id"
                     >
                     <td>{{ entrega.funcionarios?.nome }}</td>
