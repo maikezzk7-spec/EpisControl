@@ -42,11 +42,11 @@
           
           <header class="top-header">
             <div class="header-title-container">
-              <span class="figma-img-header">📸</span>
+              <img src="../assets/Segurança Elétrica.svg" alt="Segurança" class="header-icon-img">
               <h1 class="page-title">Painel de Controle de EPIs</h1>
             </div>
             <div class="user-profile">
-              <span class="figma-img-circle">📸</span>
+              <img src="../assets/Usuário.svg" alt="Usuário" class="header-icon-img">
             </div>
           </header>
 
@@ -54,7 +54,7 @@
           <div class="metrics-grid">
             <div class="metric-card">
               <div class="card-top">
-                <span class="card-icon-placeholder">📸</span>
+                <img src="../assets/Funcionários.svg" alt="Funcionários" class="card-icon-img">
                 <span class="card-name">Funcionários</span>
               </div>
               <div class="card-bottom">
@@ -65,7 +65,7 @@
 
             <div class="metric-card">
               <div class="card-top">
-                <span class="card-icon-placeholder">📸</span>
+                <img src="../assets/Capacete Azul.svg" alt="Capacete Azul" class="card-icon-img">
                 <span class="card-name">Estoque</span>
               </div>
               <div class="card-bottom">
@@ -76,7 +76,7 @@
 
             <div class="metric-card">
               <div class="card-top">
-                <span class="card-icon-placeholder">📸</span>
+                <img src="../assets/Prancheta.svg" alt="Prancheta" class="card-icon-img">
                 <span class="card-name text-green">Entregas</span>
               </div>
               <div class="card-bottom">
@@ -87,7 +87,7 @@
 
             <div class="metric-card">
               <div class="card-top">
-                <span class="card-icon-placeholder">📸</span>
+                <img src="../assets/Vencendo.svg" alt="Vencendo" class="card-icon-img">
                 <span class="card-name text-orange">Vencendo</span>
               </div>
               <div class="card-bottom">
