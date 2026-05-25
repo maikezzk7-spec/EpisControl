@@ -46,7 +46,7 @@
               <h1 class="page-title">Painel de Controle de EPIs</h1>
             </div>
             <div class="user-profile">
-              <img src="../assets/Usuário.svg" alt="Usuário" class="header-icon-img">
+              <img src="../assets/Usuário.svg" alt="Usuário" class="user-avatar-img">
             </div>
           </header>
 
@@ -294,7 +294,7 @@ async function sair() {
 
 /* Branding */
 .brand-container {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -315,6 +315,8 @@ async function sair() {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding-top: 10px;
+
 }
 
 .nav-item {
@@ -396,8 +398,8 @@ async function sair() {
 }
 
 /* Estilização Interna do Dashboard */
-.top-header { display: flex; justify-content: space-between; align-items: center; }
-.header-title-container { display: flex; align-items: center; gap: 15px; }
+.top-header { display: flex; justify-content: space-between; align-items: center; margin-top: -10px; }
+.header-title-container { display: flex; align-items: center; gap: 28px; }
 .page-title { font-size: 24px; color: #0f172a; font-weight: 700; margin: 0; }
 .view-divider { border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0 30px 0; }
 
@@ -412,31 +414,66 @@ async function sair() {
 
 /* LAYOUT DOS CARDS */
 .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
-.metric-card { background: white; border-radius: 14px; padding: 22px; border: 1px solid #e2e8f0; box-shadow: 0 4px 8px rgba(0,0,0,0.02); }
-.card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; }
-.card-name { font-size: 14px; font-weight: 600; color: #475569; }
+.metric-card { background: white; border-radius: 14px; padding: 10px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 8px rgba(0,0,0,0.02); }
+.card-top { display: flex; align-items: center; gap: 18px; margin-bottom: 35px;}
+.card-name { font-size: 18px; font-weight: 700; color: #475569; }
 .card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
 .card-qty { font-size: 38px; font-weight: 800; color: #0f172a; line-height: 1; }
 .card-dots { color: #cbd5e1; font-size: 20px; font-weight: 800; }
-
 .text-green { color: #16a34a !important; }
 .text-orange { color: #ea580c !important; }
 
 /* TABELA */
 .table-section-title { font-size: 20px; color: #0f172a; margin-bottom: 18px; font-weight: 700; }
 .table-container { background: white; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.02); }
-table { width: 100%; border-collapse: collapse; text-align: left; }
-th { font-size: 14px; font-weight: 700; padding: 16px 20px; color: #475569; background: #fafafa; border-bottom: 1px solid #e2e8f0; }
-td { padding: 16px 20px; font-size: 14px; color: #334155; border-bottom: 1px solid #f1f5f9; }
+ table { width: 100%; border-collapse: collapse; text-align: left; }
+ th { font-size: 14px; font-weight: 700; padding: 16px 20px; color: #475569; background: #fafafa; border-bottom: 1px solid #e2e8f0; }
+ td { padding: 16px 20px; font-size: 14px; color: #334155; border-bottom: 1px solid #f1f5f9; }
 
 .status-pill { padding: 5px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; }
 .status-boa { background: #dcfce7; color: #15803d; }
 .status-regular { background: #fef3c7; color: #b45309; }
 .status-descartar { background: #fee2e2; color: #dc2626;}
-/* PLACEHOLDERS DE IMAGENS */
-.figma-img-header { width: 45px; height: 35px; display: inline-block; background: #e2e8f0; border-radius: 6px; }
-.figma-img-circle { width: 40px; height: 40px; border-radius: 50%; display: inline-block; background: #0f172a; }
-.card-icon-placeholder { width: 48px; height: 48px; display: inline-block; background: #f1f5f9; border-radius: 10px; }
+
+/* ÍCONE DO TOPO */
+.header-icon-img {
+  width: 85px;
+  height: 75px;
+  object-fit: contain;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+.header-icon-img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* ÍCONES DOS CARDS */
+.card-icon-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+.card-icon-img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.user-avatar-img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.user-avatar-img:hover {
+  transform: scale(1.08);
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
