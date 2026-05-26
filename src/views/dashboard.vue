@@ -400,8 +400,8 @@ async function sair() {
 }
 
 /* Estilização Interna do Dashboard */
-.top-header { display: flex; justify-content: space-between; align-items: center; margin-top: -22px; }
-.header-title-container { display: flex; align-items: center; gap: 35px; }
+.top-header { display: flex; justify-content: space-between; align-items: center; margin-top: -18px; }
+.header-title-container { display: flex; align-items: center; gap: 22px; }
 .page-title { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
 .view-divider { border: none; height: 2px; background-color: #a7abb1; opacity: 0.30; margin: 18px 0 38px 0; border-radius: 999px; }
 
@@ -440,8 +440,8 @@ async function sair() {
 
 /* ÍCONE DO TOPO */
 .header-icon-img {
-  width: 72px;
-  height: 72px;
+  width: 92px;
+  height: 78px;
   object-fit: contain;
   transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
@@ -467,8 +467,8 @@ async function sair() {
 }
 
 .user-avatar-img {
-  width: 65px;
-  height: 65px;
+  width: 68px;
+  height: 60px;
   object-fit: contain;
   transition: transform 0.4s ease;
   cursor: pointer;
