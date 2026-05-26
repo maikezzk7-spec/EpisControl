@@ -421,7 +421,7 @@ async function sair() {
 .card-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
 .card-name { font-size: 18px; font-weight: 700; color: #334155; line-height: 1.3; flex: 1; margin-top: 8px; }
 .card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
-.card-qty { font-size: 38px; font-weight: 800; color: #0f172a; line-height: 1; }
+.card-qty { font-size: 38px; font-weight: 800; color: #0f172a; line-height: 1; margin-right: 7px; }
 .card-dots { color: #cbd5e1; font-size: 20px; font-weight: 800; }
 .text-green { color: #16a34a !important; }
 .text-orange { color: #ea580c !important; }
