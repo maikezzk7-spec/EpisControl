@@ -416,9 +416,9 @@ async function sair() {
 
 /* LAYOUT DOS CARDS */
 .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
-.metric-card { background: #ffffff; border-radius: 18px; padding: 18px; border: 1px solid #d7dee7; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.metric-card { background: #ffffff; border-radius: 18px; padding: 8px; border: 1px solid #d7dee7; box-shadow: 0 9px 18px rgba(15, 23, 42, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
 .metric-card:hover { transform: translateY(-4px); border-color: #94a3b8; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
-.card-top { display: flex; align-items: flex-start; gap: 1px; margin-bottom: 18px; }
+.card-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
 .card-name { font-size: 18px; font-weight: 700; color: #334155; line-height: 1.3; flex: 1; margin-top: 8px; }
 .card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
 .card-qty { font-size: 38px; font-weight: 800; color: #0f172a; line-height: 1; }
@@ -454,8 +454,8 @@ async function sair() {
 
 /* ÍCONES DOS CARDS */
 .card-icon-img {
-  width: 58px;
-  height: 58px;
+  width: 68px;
+  height: 68px;
   object-fit: contain;
   transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
