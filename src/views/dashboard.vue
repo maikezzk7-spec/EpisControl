@@ -274,7 +274,7 @@ async function sair() {
 .dashboard-shell {
   display: flex;
   height: 100vh;
-  background-color: #f1f5f9;
+  background-color: #eef2f7;
   font-family: 'Inter', sans-serif;
 }
 
@@ -295,6 +295,8 @@ async function sair() {
 /* Branding */
 .brand-container {
   margin-bottom: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
 
@@ -314,9 +316,9 @@ async function sair() {
 .navigation-menu {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 10px;
-
+  gap: 16px;
+  margin-top: 10px;
+  padding-top: 0px;
 }
 
 .nav-item {
@@ -386,7 +388,7 @@ async function sair() {
 .main-viewport {
   flex-grow: 1;
   margin-left: 280px;
-  padding: 40px;
+  padding: 24px 40px 40px 40px;
   overflow-y: auto;
   box-sizing: border-box;
 }
@@ -398,10 +400,10 @@ async function sair() {
 }
 
 /* Estilização Interna do Dashboard */
-.top-header { display: flex; justify-content: space-between; align-items: center; margin-top: -10px; }
-.header-title-container { display: flex; align-items: center; gap: 28px; }
-.page-title { font-size: 24px; color: #0f172a; font-weight: 700; margin: 0; }
-.view-divider { border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0 30px 0; }
+.top-header { display: flex; justify-content: space-between; align-items: center; margin-top: -22px; }
+.header-title-container { display: flex; align-items: center; gap: 35px; }
+.page-title { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+.view-divider { border: none; height: 2px; background: rgba(100, 116, 139, 0.45); margin: 18px 0 34px 0; border-radius: 999px; }
 
 /* FILTROS */
 .filter-row { display: grid; grid-template-columns: 1fr 1fr 1.2fr auto; gap: 20px; align-items: flex-end; margin-bottom: 35px; }
@@ -414,9 +416,10 @@ async function sair() {
 
 /* LAYOUT DOS CARDS */
 .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
-.metric-card { background: white; border-radius: 14px; padding: 10px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 8px rgba(0,0,0,0.02); }
-.card-top { display: flex; align-items: center; gap: 18px; margin-bottom: 35px;}
-.card-name { font-size: 18px; font-weight: 700; color: #475569; }
+.metric-card { background: #ffffff; border-radius: 18px; padding: 18px; border: 1px solid #d7dee7; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.metric-card:hover { transform: translateY(-4px); border-color: #94a3b8; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+.card-top { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+.card-name { font-size: 18px; font-weight: 700; color: #334155; line-height: 1.3; flex: 1; margin-top: 8px; }
 .card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
 .card-qty { font-size: 38px; font-weight: 800; color: #0f172a; line-height: 1; }
 .card-dots { color: #cbd5e1; font-size: 20px; font-weight: 800; }
@@ -437,8 +440,8 @@ async function sair() {
 
 /* ÍCONE DO TOPO */
 .header-icon-img {
-  width: 85px;
-  height: 75px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
@@ -451,8 +454,8 @@ async function sair() {
 
 /* ÍCONES DOS CARDS */
 .card-icon-img {
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
   transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
