@@ -11,7 +11,7 @@
         >
 
         <h1 class="page-title">
-          Painel de Controle de EPIs
+          Painel de Funcionários
         </h1>
       </div>
 
@@ -106,8 +106,11 @@
         <button
           class="btn-registrar"
           @click="registrarFuncionario"
+          :disabled="carregando"
         >
-          Registrar
+
+        {{ carregando ? 'Registrando...' : 'Registrar' }}
+
         </button>
 
       </div>
@@ -131,6 +134,7 @@ const matricula = ref('')
 const funcao = ref('')
 const departamento = ref('')
 
+const carregando = ref(false)
 /* LIMPAR CAMPOS */
 function cancelar() {
   nome.value = ''
@@ -143,6 +147,8 @@ function cancelar() {
 /* REGISTRAR FUNCIONÁRIO */
 async function registrarFuncionario() {
 
+   carregando.value = true
+
   if (
     !nome.value ||
     !cpf.value ||
@@ -151,6 +157,8 @@ async function registrarFuncionario() {
     !departamento.value
   ) {
     alert('Preencha todos os campos')
+
+    carregando.value = false
     return
   }
 
@@ -169,12 +177,16 @@ async function registrarFuncionario() {
   if (error) {
     console.error(error)
     alert('Erro ao registrar funcionário')
+
+    carregando.value = false
     return
   }
 
   alert('Funcionário registrado com sucesso!')
 
   cancelar()
+
+    carregando.value = false
 }
 
 </script>
@@ -284,11 +296,6 @@ async function registrarFuncionario() {
   margin-top: 60px;
 }
 
-.funcionario-page {
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 /* CANCELAR */
 .btn-cancelar {
   width: 180px;
@@ -332,6 +339,8 @@ async function registrarFuncionario() {
   width: 92px;
   height: 78px;
   object-fit: contain;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
 }
 
 .header-icon-img:hover {
@@ -343,11 +352,11 @@ async function registrarFuncionario() {
   width: 68px;
   height: 60px;
   object-fit: contain;
+  transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
 .user-avatar-img:hover {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
   transform: scale(1.08);
 }
 

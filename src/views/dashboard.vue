@@ -43,7 +43,7 @@
           <header class="top-header">
             <div class="header-title-container">
               <img src="../assets/Segurança Elétrica.svg" alt="Segurança" class="header-icon-img">
-              <h1 class="page-title">Painel de Controle de EPIs</h1>
+              <h1 class="page-title">Painel de Dashboard</h1>
             </div>
             <div class="user-profile">
               <img src="../assets/Usuário.svg" alt="Usuário" class="user-avatar-img">
