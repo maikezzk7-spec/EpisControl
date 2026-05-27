@@ -235,9 +235,10 @@ async function registrarFuncionario() {
 /* TÍTULO */
 .funcionario-title {
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
   color: #111827;
-  margin-bottom: 28px;
+  margin-top: -18px;
+  margin-bottom: 20px;
 }
 
 /* CAMPOS */
@@ -278,14 +279,14 @@ async function registrarFuncionario() {
 
 /* CAMPO GRANDE */
 .full {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* LINHAS */
 .double-fields {
   display: flex;
   gap: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* BOTÕES */
