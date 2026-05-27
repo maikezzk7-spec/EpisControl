@@ -294,7 +294,7 @@ async function sair() {
 
 /* Branding */
 .brand-container {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   text-align: center;
@@ -316,8 +316,8 @@ async function sair() {
 .navigation-menu {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 18x;
   padding-top: 0px;
 }
 
