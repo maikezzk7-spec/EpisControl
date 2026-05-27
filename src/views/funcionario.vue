@@ -149,14 +149,14 @@ async function registrarFuncionario() {
 
    carregando.value = true
 
-  if (
-    !nome.value ||
-    !cpf.value ||
-    !matricula.value ||
-    !funcao.value ||
-    !departamento.value
-  ) {
-    alert('Preencha todos os campos')
+  const camposObrigatorios = [
+    nome.value,
+    funcao.value,
+    departamento.value
+  ]
+
+  if (camposObrigatorios.some(campo => !campo)) {
+    alert('Preencha os campos obrigatórios')
 
     carregando.value = false
     return
