@@ -327,18 +327,18 @@ async function registrarEpi() {
   display: flex;
   justify-content: flex-end;
   gap: 18px;
-  margin-top: 60px;
+  margin-top: 90px;
 }
 
 /* CANCELAR */
 .btn-cancelar {
-  width: 180px;
-  height: 58px;
+  width: 110px;
+  height: 48px;
   border: none;
   border-radius: 12px;
   background: #0f172a;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -351,8 +351,8 @@ async function registrarEpi() {
 
 /* REGISTRAR */
 .btn-registrar {
-  width: 180px;
-  height: 58px;
+  width: 130px;
+  height: 48px;
   border: none;
   border-radius: 12px;
   background: #f7ff00;
