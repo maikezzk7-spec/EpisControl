@@ -37,12 +37,12 @@
 
       <!-- NOME -->
       <div class="input-group full">
-        <label>Nome do Equipamento:</label>
+        <label>Equipamento:</label>
 
         <input
-          v-model="nomeEquipamento"
+          v-model="Equipamento"
           type="text"
-          placeholder="Nome do Equipamento"
+          placeholder="Equipamento"
         >
       </div>
 
@@ -141,7 +141,7 @@ import { useSupabase } from '../composables/useSupabase'
 const { supabase } = useSupabase()
 
 /* CAMPOS */
-const nomeEquipamento = ref('')
+const Equipamento = ref('')
 const categoria = ref('')
 const numeroCA = ref('')
 const quantidade = ref('')
@@ -153,7 +153,7 @@ const carregando = ref(false)
 /* LIMPAR CAMPOS */
 function cancelar() {
 
-  nomeEquipamento.value = ''
+  Equipamento.value = ''
   categoria.value = ''
   numeroCA.value = ''
   quantidade.value = ''
@@ -168,32 +168,29 @@ async function registrarEpi() {
   carregando.value = true
 
   const camposObrigatorios = [
-    nomeEquipamento.value,
+    Equipamento.value,
     categoria.value,
     quantidade.value,
     estoqueMinimo.value,
     validadeDias.value
   ]
 
-  if (camposObrigatorios.some(campo => !campo)) {
-
+   if (camposObrigatorios.some(campo => !campo)) {
     alert('Preencha os campos obrigatórios')
-
     carregando.value = false
     return
-
-  }
+   }
 
   const { error } = await supabase
     .from('epis')
     .insert([
       {
-        nome: nomeEquipamento.value,
+        nome: Equipamento.value,
         categoria: categoria.value,
         numero_ca: numeroCA.value,
-        quantidade: quantidade.value,
-        estoque_minimo: estoqueMinimo.value,
-        validade_dias: validadeDias.value
+        quantidade: Number(quantidade.value),
+        estoque_minimo: Number(estoqueMinimo.value),
+        validade_dias: Number(validadeDias.value)
       }
     ])
 
@@ -201,7 +198,7 @@ async function registrarEpi() {
 
     console.error(error)
 
-    alert('Erro ao registrar EPI')
+    alert(error.message)
 
     carregando.value = false
     return
