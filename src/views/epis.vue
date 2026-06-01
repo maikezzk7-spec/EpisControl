@@ -37,12 +37,12 @@
 
       <!-- NOME -->
       <div class="input-group full">
-        <label>Equipamento:</label>
+        <label>Nome do Equipamento:</label>
 
         <input
           v-model="Equipamento"
           type="text"
-          placeholder="Equipamento"
+          placeholder="Nome do Equipamento"
         >
       </div>
 
@@ -168,6 +168,7 @@ async function registrarEpi() {
   carregando.value = true
 
   const camposObrigatorios = [
+  
     Equipamento.value,
     categoria.value,
     quantidade.value,
@@ -198,7 +199,7 @@ async function registrarEpi() {
 
     console.error(error)
 
-    alert(error.message)
+    alert('Erro ao registrar EPI')
 
     carregando.value = false
     return
