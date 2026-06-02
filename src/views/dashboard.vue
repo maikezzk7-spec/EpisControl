@@ -239,7 +239,7 @@ async function carregarCards() {
 
   // Entregas
   const { count: totalEntregasCount } = await supabase
-    .from('entregas')
+    .from('entrega_epis')
     .select('*', { count: 'exact', head: true })
 
   totalEntregas.value = totalEntregasCount || 0
