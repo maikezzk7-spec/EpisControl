@@ -178,6 +178,9 @@
     )
  `)
 
+   console.log('ENTREGAS:', data)
+   console.log('ERRO:', error)
+
   if (error) {
     console.error(error)
     return
