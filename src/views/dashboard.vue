@@ -269,7 +269,9 @@ async function sair() {
 }
 </script>
 
-<style scoped>
+<style 
+
+scoped>
 /* Reset de layout */
 .dashboard-shell {
   display: flex;
