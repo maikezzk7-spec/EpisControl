@@ -166,7 +166,7 @@
  async function carregarEntregas() {
 
   const { data, error } = await supabase
-    .from('entregas')
+    .from('entrega_epis')
     .select(`
       *,
       epis (
@@ -177,9 +177,6 @@
      nome
     )
  `)
-
-   console.log(data)
-   console.log(error)
 
   if (error) {
     console.error(error)
