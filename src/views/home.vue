@@ -2,7 +2,7 @@
   <div class="home-container">
     <header class="header">
       <div class="header-content">
-        <h1>Gestão de EPI:</h1>
+        <h1>Epis Control:</h1>
         <p class="subtitle">E o Controle de Equipamento de segurança Individual da sua Empresa</p>
         <p class="subtitle">Para um Ambiente de Trabalho Protegido.</p>
       </div>
