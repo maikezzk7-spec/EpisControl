@@ -1,7 +1,6 @@
 <template>
   <div class="epis-page">
 
-    <!-- TOPO -->
     <header class="top-header">
 
       <div class="header-title-container">
@@ -28,14 +27,12 @@
 
     <hr class="view-divider">
 
-    <!-- CONTEÚDO -->
     <section class="epis-content">
 
       <h2 class="epis-title">
-        Registro de EPIs
+        {{ editandoId ? 'Editar EPI' : 'Registro de EPIs' }}
       </h2>
 
-      <!-- NOME -->
       <div class="input-group full">
         <label>Nome do Equipamento:</label>
 
@@ -43,10 +40,10 @@
           v-model="Equipamento"
           type="text"
           placeholder="Nome do Equipamento"
+          :disabled="modoVisualizacao"
         >
       </div>
 
-      <!-- LINHA -->
       <div class="double-fields">
 
         <div class="input-group">
@@ -56,6 +53,7 @@
             v-model="categoria"
             type="text"
             placeholder="Categoria do Item"
+            :disabled="modoVisualizacao"
           >
         </div>
 
@@ -66,12 +64,12 @@
             v-model="numeroCA"
             type="text"
             placeholder="Número do CA"
+            :disabled="modoVisualizacao"
           >
         </div>
 
       </div>
 
-      <!-- LINHA -->
       <div class="triple-fields">
 
         <div class="input-group">
@@ -81,6 +79,7 @@
             v-model="quantidade"
             type="number"
             placeholder="Qtd em estoque"
+            :disabled="modoVisualizacao"
           >
         </div>
 
@@ -91,6 +90,7 @@
             v-model="estoqueMinimo"
             type="number"
             placeholder="Estoque mínimo"
+            :disabled="modoVisualizacao"
           >
         </div>
 
@@ -101,31 +101,63 @@
             v-model="validadeDias"
             type="number"
             placeholder="Validade"
+            :disabled="modoVisualizacao"
           >
         </div>
 
       </div>
 
-      <!-- BOTÕES -->
       <div class="buttons-container">
 
         <button
           class="btn-cancelar"
           @click="cancelar"
         >
-          Cancelar
+          {{ modoVisualizacao ? 'Fechar' : 'Cancelar' }}
         </button>
 
         <button
+          v-if="!modoVisualizacao"
           class="btn-registrar"
-          @click="registrarEpi"
+          @click="salvarEpi"
           :disabled="carregando"
         >
-
-          {{ carregando ? 'Registrando...' : 'Registrar' }}
-
+          {{ carregando ? 'Salvando...' : (editandoId ? 'Atualizar' : 'Registrar') }}
         </button>
 
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="lista-container">
+        <h3 class="lista-title">EPIs Cadastrados</h3>
+        
+        <div v-if="epis.length === 0" class="sem-dados">
+          Nenhum EPI carregado.
+        </div>
+
+        <table v-else class="tabela-epis">
+          <thead>
+            <tr>
+              <th>Equipamento</th>
+              <th>Categoria</th>
+              <th>Estoque</th>
+              <th class="txt-center">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in epis" :key="item.id">
+              <td>{{ item.nome }}</td>
+              <td>{{ item.categoria }}</td>
+              <td>{{ item.quantidade }} un</td>
+              <td class="acoes-cell">
+                <button class="btn-acao btn-ver" @click="visualizarEpi(item)" title="Visualizar">👁️</button>
+                <button class="btn-acao btn-editar" @click="prepararEdicao(item)" title="Editar">✏️</button>
+                <button class="btn-acao btn-excluir" @click="excluirEpi(item.id)" title="Excluir">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </section>
@@ -134,8 +166,7 @@
 </template>
 
 <script setup>
-
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useSupabase } from '../composables/useSupabase'
 
 const { supabase } = useSupabase()
@@ -149,26 +180,96 @@ const estoqueMinimo = ref('')
 const validadeDias = ref('')
 
 const carregando = ref(false)
+const epis = ref([]) // Armazena a lista vinda do banco
 
-/* LIMPAR CAMPOS */
+/* ESTADOS DE CONTROLE */
+const editandoId = ref(null)       // Guarda o ID se estiver editando
+const modoVisualizacao = ref(false)  // Bloqueia os inputs se for apenas para ver
+
+/* BUSCAR EPIs DO SUPABASE */
+async function buscarEpis() {
+  const { data, error } = await supabase
+    .from('epis')
+    .select('*')
+    .order('nome', { ascending: true })
+    
+  if (!error && data) {
+    epis.value = data
+  }
+}
+
+/* CARREGAR AO ABRIR A TELA */
+onMounted(() => {
+  buscarEpis()
+})
+
+/* LIMPAR CAMPOS / CANCELAR */
 function cancelar() {
-
   Equipamento.value = ''
   categoria.value = ''
   numeroCA.value = ''
   quantidade.value = ''
   estoqueMinimo.value = ''
   validadeDias.value = ''
-
+  editandoId.value = null
+  modoVisualizacao.value = false
 }
 
-/* REGISTRAR EPI */
-async function registrarEpi() {
+/* VISUALIZAR */
+function visualizarEpi(item) {
+  modoVisualizacao.value = true
+  editandoId.value = null
+  
+  Equipamento.value = item.nome
+  categoria.value = item.categoria
+  numeroCA.value = item.numero_ca
+  quantidade.value = item.quantidade
+  estoqueMinimo.value = item.estoque_minimo
+  validadeDias.value = item.validade_dias
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
+/* PREPARAR EDIÇÃO */
+function prepararEdicao(item) {
+  modoVisualizacao.value = false
+  editandoId.value = item.id // Salva o ID para sabermos qual atualizar
+  
+  Equipamento.value = item.nome
+  categoria.value = item.categoria
+  numeroCA.value = item.numero_ca
+  quantidade.value = item.quantidade
+  estoqueMinimo.value = item.estoque_minimo
+  validadeDias.value = item.validade_dias
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+/* EXCLUIR EPI NO SUPABASE */
+async function excluirEpi(id) {
+  if (!confirm('Tem certeza que deseja excluir este EPI?')) return
+
+  const { error } = await supabase
+    .from('epis')
+    .delete()
+    .eq('id', id)
+
+  if (error) {
+    console.error(error)
+    alert('Erro ao excluir EPI')
+    return
+  }
+
+  alert('EPI excluído com sucesso!')
+  buscarEpis() // Atualiza a lista na tabela
+  if (editandoId.value === id) cancelar()
+}
+
+/* SALVAR (UNIFICA INSERÇÃO E ATUALIZAÇÃO) */
+async function salvarEpi() {
   carregando.value = true
 
   const camposObrigatorios = [
-  
     Equipamento.value,
     categoria.value,
     quantidade.value,
@@ -176,54 +277,60 @@ async function registrarEpi() {
     validadeDias.value
   ]
 
-   if (camposObrigatorios.some(campo => !campo)) {
+  if (camposObrigatorios.some(campo => !campo)) {
     alert('Preencha os campos obrigatórios')
     carregando.value = false
     return
-   }
-
-  const { error } = await supabase
-    .from('epis')
-    .insert([
-      {
-        nome: Equipamento.value,
-        categoria: categoria.value,
-        numero_ca: numeroCA.value,
-        quantidade: Number(quantidade.value),
-        estoque_minimo: Number(estoqueMinimo.value),
-        validade_dias: Number(validadeDias.value)
-      }
-    ])
-
-  if (error) {
-
-    console.error(error)
-
-    alert('Erro ao registrar EPI')
-
-    carregando.value = false
-    return
-
   }
 
-  alert('EPI registrado com sucesso!')
+  const dados = {
+    nome: Equipamento.value,
+    categoria: categoria.value,
+    numero_ca: numeroCA.value,
+    quantidade: Number(quantidade.value),
+    estoque_minimo: Number(estoqueMinimo.value),
+    validade_dias: Number(validadeDias.value)
+  }
 
+  let erroBanco = null
+
+  if (editandoId.value) {
+    // Se tem ID ativo, faz o UPDATE
+    const { error } = await supabase
+      .from('epis')
+      .update(dados)
+      .eq('id', editandoId.value)
+    erroBanco = error
+  } else {
+    // Se não tem ID ativo, faz o INSERT
+    const { error } = await supabase
+      .from('epis')
+      .insert([dados])
+    erroBanco = error
+  }
+
+  if (erroBanco) {
+    console.error(erroBanco)
+    alert('Erro ao salvar informações do EPI')
+    carregando.value = false
+    return
+  }
+
+  alert(editandoId.value ? 'EPI atualizado com sucesso!' : 'EPI registrado com sucesso!')
+  
   cancelar()
-
+  buscarEpis() // Atualiza a tabela com os novos dados
   carregando.value = false
-
 }
-
 </script>
 
 <style scoped>
+/* [MANTIDOS SEUS ESTILOS ORIGINAIS] */
 
-/* PÁGINA */
 .epis-page {
   animation: fadeIn 0.4s ease;
 }
 
-/* HEADER */
 .top-header {
   display: flex;
   justify-content: space-between;
@@ -252,12 +359,10 @@ async function registrarEpi() {
   border-radius: 999px;
 }
 
-/* CONTEÚDO */
 .epis-content {
   max-width: 980px;
 }
 
-/* TÍTULO */
 .epis-title {
   font-size: 30px;
   font-weight: 700;
@@ -266,7 +371,6 @@ async function registrarEpi() {
   margin-bottom: 20px;
 }
 
-/* CAMPOS */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -293,21 +397,25 @@ async function registrarEpi() {
   transition: 0.2s ease;
 }
 
-.input-group input:focus {
+.input-group input:focus:not(:disabled) {
   border-color: #0f172a;
   box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
+}
+
+.input-group input:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
 }
 
 .input-group input::placeholder {
   color: #9ca3af;
 }
 
-/* CAMPO GRANDE */
 .full {
   margin-bottom: 18px;
 }
 
-/* LINHAS */
 .double-fields {
   display: flex;
   gap: 36px;
@@ -320,15 +428,13 @@ async function registrarEpi() {
   margin-bottom: 20px;
 }
 
-/* BOTÕES */
 .buttons-container {
   display: flex;
   justify-content: flex-end;
   gap: 18px;
-  margin-top: 90px;
+  margin-top: 40px; /* Reduzido para dar respiro à nova listagem */
 }
 
-/* CANCELAR */
 .btn-cancelar {
   width: 110px;
   height: 48px;
@@ -347,7 +453,6 @@ async function registrarEpi() {
   transform: translateY(-2px);
 }
 
-/* REGISTRAR */
 .btn-registrar {
   width: 130px;
   height: 48px;
@@ -362,11 +467,16 @@ async function registrarEpi() {
   transition: 0.2s ease;
 }
 
-.btn-registrar:hover {
+.btn-registrar:hover:not(:disabled) {
   transform: translateY(-2px);
 }
 
-/* ÍCONES */
+.btn-registrar:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
 .header-icon-img {
   width: 92px;
   height: 78px;
@@ -392,19 +502,86 @@ async function registrarEpi() {
   transform: scale(1.08);
 }
 
-/* ANIMAÇÃO */
-@keyframes fadeIn {
+/* --- NOVOS ESTILOS ADICIONADOS PARA A TABELA DE EPIs --- */
 
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 40px 0;
 }
 
+.lista-container {
+  margin-bottom: 60px;
+}
+
+.lista-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.sem-dados {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.tabela-epis {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.tabela-epis th {
+  background-color: #0f172a;
+  color: #ffffff;
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.tabela-epis td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  font-size: 15px;
+}
+
+.txt-center {
+  text-align: center !important;
+}
+
+.acoes-cell {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-acao {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-acao:active {
+  transform: scale(0.95);
+}
+
+.btn-ver:hover { background-color: #f3f4f6; }
+.btn-editar:hover { background-color: #fef08a; }
+.btn-excluir:hover { background-color: #fee2e2; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
